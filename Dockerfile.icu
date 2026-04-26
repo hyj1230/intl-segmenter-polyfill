@@ -7,9 +7,9 @@ RUN apt-get update && apt-get install -y build-essential git python
 
 
 WORKDIR /
-RUN git clone https://github.com/unicode-org/icu
+RUN git clone --depth 1 --filter=blob:none --no-checkout https://github.com/unicode-org/icu
 WORKDIR /icu/icu4c/source
-RUN git checkout 21d1eb0f306e1141c10931e914dfc038c06121da
+RUN git fetch --depth 1 origin 21d1eb0f306e1141c10931e914dfc038c06121da && git checkout FETCH_HEAD
 
 RUN ./runConfigureICU Linux --with-data-packaging=archive
 RUN make -j$(nproc)
