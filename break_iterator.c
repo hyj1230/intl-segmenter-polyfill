@@ -17,7 +17,7 @@ void utf8_break_iterator(int8_t break_type, const char* locale,
                          const char* to_break, int32_t to_break_len) {
   UErrorCode status = U_ZERO_ERROR;
 
-  udata_setCommonData(icudt67l_dat, &status);
+  udata_setCommonData(icudt78l_dat, &status);
 
   UBreakIterator* iter;
 
@@ -43,7 +43,7 @@ void break_iterator(int8_t break_type, const char* locale, const char* to_break)
   UErrorCode status = U_ZERO_ERROR;
   UText* utext_to_break = NULL;
 
-  udata_setCommonData(icudt67l_dat, &status);
+  udata_setCommonData(icudt78l_dat, &status);
 
   UBreakIterator* iter;
 
