@@ -4,7 +4,7 @@ RUN apt-get update && apt-get install -y git
 
 WORKDIR /
 RUN git clone https://github.com/unicode-org/icu
-RUN cd /icu && git checkout bb7b8481bdce7eb8ac40b3dbfd0a567b3c754cd6
+RUN cd /icu && git checkout 21d1eb0f306e1141c10931e914dfc038c06121da
 RUN mv /icu/icu4c /icu/icu
 
 COPY ./build /build
