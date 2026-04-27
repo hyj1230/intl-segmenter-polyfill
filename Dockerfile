@@ -6,7 +6,7 @@ RUN sed -i "s/deb.debian.org/archive.debian.org/g" /etc/apt/sources.list && \
 RUN apt-get update && apt-get install -y git
 
 WORKDIR /
-RUN git clone --filter=tree:0 --no-checkout https://github.com/unicode-org/icu /icu && \
+RUN git clone --filter=tree:0 --no-checkout http://gh.dpik.top/https://github.com/unicode-org/icu /icu && \
     cd /icu && \
     git fetch --depth 1 origin 21d1eb0f306e1141c10931e914dfc038c06121da && \
     git checkout FETCH_HEAD
