@@ -22,4 +22,4 @@ RUN cp data/out/icu* /artifacts
 
 WORKDIR /artifacts
 RUN apt-get update && apt-get install -y xxd
-RUN xxd -i icudt67l.dat data.h
+RUN xxd -i icudt78l.dat data.h
