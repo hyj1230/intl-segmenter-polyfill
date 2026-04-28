@@ -13,7 +13,7 @@ RUN ./emsdk install sdk-upstream-master-64bit
 
 FROM debian:buster
 
-RUN apt-get update && apt-get install -y python
+RUN apt-get update && apt-get install -y python3
 COPY --from=0 /emsdk /emsdk
 WORKDIR /emsdk
 RUN ./emsdk activate sdk-upstream-master-64bit
