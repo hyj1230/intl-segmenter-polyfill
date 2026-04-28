@@ -7,16 +7,16 @@ import logging
 import os
 import shutil
 
-TAG = 'release-67-1'
-VERSION = '67_1'
-HASH = 'e0c366e097d5cd9840e7c440a87f8f338cc59b1ed7ec527eecbb5671c6c48261b217424a7ee95870915c19b70b1afa2e486100e73acae3515d30bb3872661c11'
+TAG = 'release-78.3'
+VERSION = '78.3'
+HASH = '81d764afc52e622bf22b39318db2d9c273d1809b5c4692f4c25e30910cce87d7666e3e2e9d287be11bd5e68e1bb5f2760056ba4344e7ad169f4cc7ca7b5a21f0'
 SUBDIR = ''
 
 def get(ports, settings, shared):
   if settings.USE_ICU != 1:
     return []
 
-  url = 'https://github.com/unicode-org/icu/releases/download/%s/icu4c-%s-src.zip' % (TAG, VERSION)
+  url = 'https://github.com/unicode-org/icu/releases/download/%s/icu4c-%s-sources.zip' % (TAG, VERSION)
   ports.fetch_project('icu', url, 'icu', sha512hash=HASH)
   libname = ports.get_lib_name('libicuuc')
 
