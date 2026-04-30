@@ -20,4 +20,4 @@ SHELL ["/bin/bash", "-c"]
 
 RUN cp /build/icu.py /emsdk/emscripten/master/tools/ports
 RUN mkdir -p /artifacts
-RUN source /emsdk/emsdk_env.sh; EMCC_LOCAL_PORTS="icu=/icu" emcc break_iterator.c -s USE_ICU=1 -o /artifacts/break_iterator.wasm  -s EXPORTED_FUNCTIONS='["_main", "_break_iterator", "_utf8_break_iterator", "_malloc", "_free"]' -s ERROR_ON_UNDEFINED_SYMBOLS=0
+RUN export CXXFLAGS="-std=c++17" && source /emsdk/emsdk_env.sh; EMCC_LOCAL_PORTS="icu=/icu" emcc -x c++ break_iterator.c -std=c++17 -s USE_ICU=1 -o /artifacts/break_iterator.wasm  -s EXPORTED_FUNCTIONS='["_main", "_break_iterator", "_utf8_break_iterator", "_malloc", "_free"]' -s ERROR_ON_UNDEFINED_SYMBOLS=0
