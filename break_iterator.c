@@ -23,7 +23,7 @@ void utf8_break_iterator(int8_t break_type, const char* locale,
 
   UChar string_to_break[to_break_len + 1];
   u_uastrcpy(string_to_break, to_break);
-  iter = ubrk_open(break_type, locale, string_to_break,
+  iter = ubrk_open((UBreakIteratorType)break_type, locale, string_to_break,
                    u_strlen(string_to_break), &status);
 
   int32_t end;
@@ -49,7 +49,7 @@ void break_iterator(int8_t break_type, const char* locale, const char* to_break)
 
   utext_to_break = utext_openUTF8(utext_to_break, to_break, -1, &status);
 
-  iter = ubrk_open(break_type, locale, NULL, -1, &status);
+  iter = ubrk_open((UBreakIteratorType)break_type, locale, NULL, -1, &status);
   ubrk_setUText(iter, utext_to_break, &status);
 
   int32_t end;
