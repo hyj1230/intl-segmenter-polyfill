@@ -32,7 +32,7 @@ def get(ports, settings, shared):
     shutil.copytree(source_path, dest_path)
 
     final = os.path.join(dest_path, libname)
-    ports.build_port(os.path.join(dest_path, 'source', 'common'), final, [os.path.join(dest_path, 'source', 'common')], ['-DU_COMMON_IMPLEMENTATION=1'])
+    ports.build_port(os.path.join(dest_path, 'source', 'common'), final, [os.path.join(dest_path, 'source', 'common')], ['-DU_COMMON_IMPLEMENTATION=1', '-std=c++17'])
 
     ports.install_header_dir(os.path.join(dest_path, 'source', 'common', 'unicode'))
     return final
