@@ -14,9 +14,9 @@ RUN git fetch --depth 1 origin 21d1eb0f306e1141c10931e914dfc038c06121da && git c
 RUN ./runConfigureICU Linux --with-data-packaging=archive
 RUN make -j$(nproc)
 
-# COPY ./filters.json /
-# RUN ICU_DATA_FILTER_FILE=/filters.json ./runConfigureICU Linux --with-data-packaging=archive
-# RUN cd data && make clean && make
+COPY ./filters.json /
+RUN ICU_DATA_FILTER_FILE=/filters.json ./runConfigureICU Linux --with-data-packaging=archive
+RUN cd data && make clean && make
 RUN mkdir -p /artifacts
 RUN cp data/out/icu* /artifacts
 
